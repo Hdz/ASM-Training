@@ -1,0 +1,190 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+  }
+
+  div {
+    padding-bottom: 30%; /* = width for a square aspect ratio */
+    border-radius: 10px;
+    height:auto;
+
+}
+
+.square {
+    float:left;
+    position: relative;
+    width: 30%;
+    padding-bottom: 30%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+    overflow:hidden;
+    height:auto;
+
+}
+
+.content {
+    position:absolute;
+    height:80%; /* = 100% - 2*10% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: center;
+    height:auto;
+
+}
+
+.content .rs{
+    width:auto;
+    height:auto;
+    max-height:90%;
+    max-width:100%;
+}
+/*  For responsive images as background */
+
+.bg{
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+    color:#fff;
+}
+.imghome{
+    position: fixed;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 1s ease-out;
+    filter: grayscale(90%);
+    width:50%;
+    height:50%;
+    object-fit: cover;
+    overflow: hidden;
+
+    
+}
+
+
+.imghome:hover{
+    filter: grayscale(0%);
+
+}
+.imghome1{
+    background-repeat:no-repeat;
+    background-position: center;
+    transition: 1s ease-out;
+    filter: grayscale(90%);
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+.imghome1:hover{
+    filter: grayscale(0%);
+
+}
+.img1{
+    /* background-image: url('src/assets/images/sommaire.jpg'); */
+    transition: 1s ease-out;
+    filter: grayscale(90%);
+
+}
+.img1:hover{
+    filter: grayscale(0%);
+
+}
+.img2{
+    /**background-image: url('src/assets/images/aliment-healthy.jpg');**/
+    transition: 1s ease-out;
+    filter: grayscale(90%);
+    
+}
+.img2:hover{
+    filter: grayscale(0%);
+
+}
+.img3{
+    /* background-image: url('src/assets/images/informer.jpg'); */
+    transition: 1s ease-out;
+    filter: grayscale(90%);
+}
+.img3:hover{
+    filter: grayscale(0%);
+
+}
+
+.img4{
+    /* background-image: url('src/assets/images/entrainement.jpg'); */
+    transition: 1s ease-out;
+    filter: grayscale(90%);
+}
+.img4:hover{
+    filter: grayscale(0%);
+
+}
+
+.img5{
+    /* background-image: url('src/assets/images/revision.jpg'); */
+    transition: 1s ease-out;
+    filter: grayscale(90%);
+}
+.img5:hover{
+    filter: grayscale(0%);
+
+}
+
+.img6{
+    /* background-image: url('src/assets/images/introduction.jpg'); */
+    transition: 1s ease-out;
+    filter: grayscale(90%);
+}
+.img6:hover{
+    filter: grayscale(0%);
+
+}
+
+.img7{
+    /* background-image: url('src/assets/images/tactique.jpg'); */
+    transition: 1s ease-out;
+    filter: grayscale(90%);
+}
+.img7:hover{
+    filter: grayscale(0%);
+
+}
+
+.img8{
+    /* background-image: url('src/assets/images/regles.png'); */
+    transition: 1s ease-out;
+    filter: grayscale(90%);
+}
+.img8:hover{
+    filter: grayscale(0%);
+
+}
+
+.img10{
+    /* background-image: url('src/assets/images/revision.jpg'); */
+    transition: 1s ease-out;
+    filter: grayscale(90%);
+}
+.img10:hover{
+    filter: grayscale(0%);
+
+}
+/*  following just for the demo */
+
+
+body {
+    font-size:20px;
+    font-family: 'Lato',verdana, sans-serif;
+    color: #fff;
+    background:#ECECEC;
+}
+
+.numbers{
+    font-weight:900;
+    font-size:100px;
+}
+
+.button {
+    position: fixed;
+}

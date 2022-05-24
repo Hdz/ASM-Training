@@ -1,0 +1,17 @@
+<div class="displayTable ">
+  <div class="box">
+        <h3 class="fade-in">Connecte-toi</h3>
+        <div class="formGroup inp">
+          <input type="text" id="inp" class="inp" placeholder="Adresse e-mail" #userName required>
+        </div>
+        <div class="formGroup inp">
+          <input type="password" id="inp2" class="inp" placeholder="Mot de passe" #userPassword required>
+        </div>
+        <!-- Calling SignIn Api from AuthService -->
+
+          <input type="" class="btn login_btn" value="Connecte-toi" (click)="authService.SignIn(userName.value, userPassword.value)">
+          <button type="" class="btn login_btn" (click)="authService.GoogleAuth()"><img alt="Google" title="Home" width="20" height="20" src="./assets/images/Google_logo.svg" onerror="this.onerror=null; this.src='/src/assets/images/Google_logo.svg'">
+          </button>
+          <span routerLink="/forgot-password" class="btn login_btn">Mot de passe oublié?</span>
+        </div>
+    </div>
