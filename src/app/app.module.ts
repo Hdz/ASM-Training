@@ -65,6 +65,7 @@ import { LoggedInAuthGuard } from './shared/guard/logged-in-auth.guard';
 
 import { FormsModule } from '@angular/forms';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,7 @@ import { FormsModule } from '@angular/forms';
     SignInComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -121,6 +122,7 @@ import { FormsModule } from '@angular/forms';
     MatTooltipModule,
     MatTreeModule,
     MatIconModule,
+    FlexLayoutModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),

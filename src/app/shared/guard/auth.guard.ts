@@ -14,6 +14,9 @@ import { Observable } from 'rxjs';
     if (this._authService.isLoggedIn) {
         return true;
     }
+    else {
+      this._router.navigate(['/sign-in'])
+    }
       return !this._authService.isLoggedIn;
 
     // navigate to login page

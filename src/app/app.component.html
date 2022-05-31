@@ -1,87 +1,131 @@
-<mat-sidenav-container fullscreen>
-  <nav>
-  <mat-sidenav #sidenav #start [mode]="'side'"  
-  [(opened)]="opened" 
-  (opened)="events.push('open!')"
-  (closed)="events.push('close!')"
-  *ngIf="authService.isLoggedIn == true" 
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar class="toolbar">
+    <button
+    mat-icon-button
+    (click)="start.toggle()"
+    *ngIf="authService.isLoggedIn == true"
   >
-    <mat-accordion>
-      <mat-expansion-panel class="mat-elevation-z0" >
-        <mat-expansion-panel-header class="panel">Informations</mat-expansion-panel-header>
-        <br />
-        <a class="button-wrapInfo" routerLink="/presaison">Calendrier pré-saison</a>
-          <br />
-          <br />
-          <a class="button-wrapInfo" routerLink="/calendrier">Calendrier saison 2020-2021</a>
-      </mat-expansion-panel>
-    </mat-accordion>
-      <hr>
-      <a class="button" routerLink="/alimentation">Alimentation</a>
-      <hr>
+    <img width="40" alt="Logo du club" src="./assets/images/logo2.png" />
+  </button>
+    <a class="button-wrap" routerLink="/home">
+      <span class="fade-in">Bienvenue à l'ASM</span>
+    </a>
+    <span class="example-spacer"></span>
+
+    <div
+      role="button"
+      class="top-right"
+      *ngIf="authService.isLoggedIn == true"
+      routerLink="/dashboard"
+    >
+    <div class="example-spacer"></div>
+      <div
+        class="fade-in profile"
+        [fxShow]="true"
+        [fxShow.sm]="false"
+        [fxShow.xs]="false"
+        *ngIf="authService.userData as user"
+      >
+        Salut,
+        <strong>{{ user.displayName ? user.displayName : "User" }}</strong>
+      </div>
+      <img
+        *ngIf="authService.userData as user"
+        [fxShow]="true"
+        [fxShow.sm]="true"
+        [fxShow.xs]="true"
+        class="fade-in img-thumbnail rounded-circle"
+        style="height: 40px"
+        src="{{ user.photoURL ? user.photoURL : '/assets/dummy-user.png' }}"
+        alt="{{ user.displayName }}"
+      />
+      <button
+        mat-icon-button
+        class="fade-in"
+        aria-label="Déconnexion"
+        *ngIf="authService.isLoggedIn == true"
+        (click)="authService.SignOut()"
+      >
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+    <mat-sidenav-container autosize
+    class="example-sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+  >
+    <mat-sidenav
+      #start
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+    >
+      <mat-nav-list>
+        <mat-accordion>
+          <mat-expansion-panel class="mat-elevation-z0">
+            <mat-expansion-panel-header class="panel"
+              >Menu</mat-expansion-panel-header
+            >
+            <br />
+            <a class="button-wrapInfo" routerLink="/">Test</a>
+            <br />
+            <br />
+            <a class="button-wrapInfo" routerLink="/">Test</a>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<!-- Copyright 2022 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at https://angular.io/license -->
+
+<!-- 
+<mat-sidenav-container fullscreen>
+    <mat-toolbar class="toolbar" role="banner" aria-label="Toolbar">
+      <mat-toolbar-row>
+
+
+
+        <span class="example-spacer"></span>
+
+
+      </mat-toolbar-row>
+    </mat-toolbar>
+  <mat-sidenav #start [mode]="'side'">
+    <nav>
       <mat-accordion>
-        <mat-expansion-panel class="mat-elevation-z0" >
-          <mat-expansion-panel-header class="panel">Entrainement</mat-expansion-panel-header>
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header class="panel"
+            >Menu</mat-expansion-panel-header
+          >
           <br />
-          <a class="button-wrap" routerLink="/entrainement">Préparation physique</a>
-            <br />
-            <br />
-            <a class="button-wrap" routerLink="/defis-technique">Defis technique</a>
+          <a class="button-wrapInfo" routerLink="/">Test</a>
+          <br />
+          <br />
+          <a class="button-wrapInfo" routerLink="/">Test</a>
         </mat-expansion-panel>
       </mat-accordion>
-  </mat-sidenav>
-      </nav>
-  <mat-sidenav-content>
-    <mat-toolbar>
-      <div class="toolbar" role="banner" aria-label="Toolbar">
-        <img width="40" alt="Logo du club" src="./assets/images/logo2.png" />
-        <a class="" routerLink="/home">
-          <span class="fade-in">Bienvenue à l'ASM</span>
-        </a>
-        <span class="example-spacer"></span>
-        <button
-          mat-icon-button
-          class="fade-in toolbarright"
-          aria-label="Example icon-button with menu icon"
-          routerLink="dashboard"
-          *ngIf="authService.isLoggedIn == true"
-        >
-          <p *ngIf="authService.userData as user">
-            Salut,
-            <strong>{{ user.displayName ? user.displayName : "User" }}</strong>
-          </p>
-        </button>
-        <div class="space"></div>
-        <button
-          mat-icon-button
-          class="fade-in toolbarright"
-          aria-label="Déconnexion"
-          *ngIf="authService.isLoggedIn == true"
-          (click)="authService.SignOut()"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            class="filter"
+      <hr />
+      <a class="button" routerLink="/"></a>
+      <hr />
+      <mat-accordion>
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header class="panel"
+            >Menu 2</mat-expansion-panel-header
           >
-            <path
-              d="M10 9.408l2.963 2.592-2.963 2.592v-1.592h-8v-2h8v-1.592zm-2-4.408v4h-8v6h8v4l8-7-8-7zm6-3c-1.787 0-3.46.474-4.911 1.295l.228.2 1.396 1.221c1.004-.456 2.114-.716 3.287-.716 4.411 0 8 3.589 8 8s-3.589 8-8 8c-1.173 0-2.283-.26-3.288-.715l-1.396 1.221-.228.2c1.452.82 3.125 1.294 4.912 1.294 5.522 0 10-4.477 10-10s-4.478-10-10-10z"
-            />
-          </svg>
-        </button>
-      </div>
-    </mat-toolbar>
-
-    <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
-    <p>Events:</p>
-    <div class="example-events">
-      <div *ngFor="let e of events">{{e}}</div>
-    </div>
-
-
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-<footer></footer>
+          <br />
+          <a class="button-wrap" routerLink="/">Menu 2</a>
+          <br />
+          <br />
+          <a class="button-wrap" routerLink="/"></a>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </nav>
+  </mat-sidenav>
+</mat-sidenav-container> -->

@@ -9,7 +9,7 @@ export class LoggedInAuthGuard implements CanActivate {
 
     canActivate(): boolean {
         if (this._authService.isLoggedIn) {
-            this._router.navigate(['/home'])
+            this._router.navigate(['/dashboard'])
             return false
         } else {
             return true
