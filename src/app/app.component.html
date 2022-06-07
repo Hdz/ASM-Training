@@ -50,8 +50,8 @@
       </button>
     </div>
   </mat-toolbar>
-    <mat-sidenav-container autosize
-    class="example-sidenav-container"
+    <mat-sidenav-container autosize hasBackdrop opened='true'
+    class="main-style"
     [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
   >
     <mat-sidenav
@@ -59,19 +59,37 @@
       [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56"
+      class="sidenav"
+      fullscreen
+      (mouseover)="changeText=true" (mouseout)="changeText=false"
     >
       <mat-nav-list>
         <mat-accordion>
-          <mat-expansion-panel class="mat-elevation-z0">
-            <mat-expansion-panel-header class="panel"
-              >Menu</mat-expansion-panel-header
-            >
-            <br />
-            <a class="button-wrapInfo" routerLink="/">Test</a>
-            <br />
-            <br />
-            <a class="button-wrapInfo" routerLink="/">Test</a>
-          </mat-expansion-panel>
+          <mat-list-item>
+            <button mat-button class="sidenav-icons">
+              <mat-icon matListIcon class="">folder</mat-icon>
+              <span *ngIf="changeText">Dossiers</span>
+            </button>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-button class="sidenav-icons">
+              <mat-icon matListIcon class="">image</mat-icon>
+              <span *ngIf="changeText">Gallerie</span>
+            </button>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-button class="sidenav-icons">
+              <mat-icon matListIcon class="">notifications</mat-icon>
+              <span *ngIf="changeText">Notifications</span>
+            </button>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-button class="sidenav-icons">
+              <mat-icon matListIcon class="">voice_chat</mat-icon>
+              <span *ngIf="changeText">Vidéos</span>
+
+            </button>
+          </mat-list-item>
         </mat-accordion>
       </mat-nav-list>
     </mat-sidenav>
@@ -80,52 +98,3 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-
-<!-- Copyright 2022 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at https://angular.io/license -->
-
-<!-- 
-<mat-sidenav-container fullscreen>
-    <mat-toolbar class="toolbar" role="banner" aria-label="Toolbar">
-      <mat-toolbar-row>
-
-
-
-        <span class="example-spacer"></span>
-
-
-      </mat-toolbar-row>
-    </mat-toolbar>
-  <mat-sidenav #start [mode]="'side'">
-    <nav>
-      <mat-accordion>
-        <mat-expansion-panel class="mat-elevation-z0">
-          <mat-expansion-panel-header class="panel"
-            >Menu</mat-expansion-panel-header
-          >
-          <br />
-          <a class="button-wrapInfo" routerLink="/">Test</a>
-          <br />
-          <br />
-          <a class="button-wrapInfo" routerLink="/">Test</a>
-        </mat-expansion-panel>
-      </mat-accordion>
-      <hr />
-      <a class="button" routerLink="/"></a>
-      <hr />
-      <mat-accordion>
-        <mat-expansion-panel class="mat-elevation-z0">
-          <mat-expansion-panel-header class="panel"
-            >Menu 2</mat-expansion-panel-header
-          >
-          <br />
-          <a class="button-wrap" routerLink="/">Menu 2</a>
-          <br />
-          <br />
-          <a class="button-wrap" routerLink="/"></a>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </nav>
-  </mat-sidenav>
-</mat-sidenav-container> -->
