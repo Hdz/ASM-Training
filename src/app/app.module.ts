@@ -66,6 +66,9 @@ import { LoggedInAuthGuard } from './shared/guard/logged-in-auth.guard';
 import { FormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { UploadFormComponent } from './components/upload-form/upload-form.component';
+import { UploadListComponent } from './components/upload-list/upload-list.component';
+import { UploadDetailsComponent } from './components/upload-details/upload-details.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +78,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ForgotPasswordComponent,
     VerifyEmailComponent,
     DashboardComponent,
+    UploadFormComponent,
+    UploadListComponent,
+    UploadDetailsComponent,
   ],
   imports: [
     BrowserModule,
